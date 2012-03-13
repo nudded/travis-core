@@ -41,7 +41,7 @@ class IrcClient
 
   def quit
     socket.puts 'QUIT'
-    socket.gets until socket.eof?
+    socket.close
     ping_thread.exit
   end
 
