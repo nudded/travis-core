@@ -9,8 +9,7 @@ Gem::Specification.new do |s|
   s.authors      = ["Travis CI"]
   s.email        = "contact@travis-ci.org"
   s.homepage     = "https://github.com/travis-ci/travis-core"
-  s.summary      = "[summary]"
-  s.description  = "[description]"
+  s.summary      = "The heart of Travis"
 
   s.files        = Dir['{lib/**/*,spec/**/*,[A-Z]*}']
   s.platform     = Gem::Platform::RUBY
@@ -39,5 +38,5 @@ Gem::Specification.new do |s|
 
   # apis
   s.add_dependency 'octokit',           '~> 0.6.5'
-  s.add_dependency 'pusher',            '~> 0.8.5'
+  s.add_dependency 'pusher',            '~> 0.9.2'
 end

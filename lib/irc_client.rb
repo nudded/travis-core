@@ -23,20 +23,20 @@ class IrcClient
   end
 
   def join(channel, key = nil)
-    self.channel = channel
-    socket.puts "JOIN ##{self.channel} #{key}".strip
+    socket.puts "JOIN ##{channel} #{key}".strip
   end
 
   def run(&block)
     instance_eval(&block) if block_given?
   end
 
-  def leave
+  def leave(channel)
     socket.puts "PART ##{channel}"
   end
 
-  def say(message)
-    socket.puts "PRIVMSG ##{channel} :#{message}" if channel
+  def say(message, channel, use_notice = false)
+    message_type = use_notice ? "NOTICE" : "PRIVMSG"
+    socket.puts "#{message_type} ##{channel} :#{message}"
   end
 
   def quit
@@ -52,7 +52,7 @@ class IrcClient
       loop do
         s.puts "PONG #{$1}" if s.gets =~ /^PING (.*)/
       end
-    end.run
+    end
   end
 end
 
