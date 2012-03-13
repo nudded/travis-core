@@ -2,6 +2,6 @@ language: ruby
 rvm:
   - 1.9.2
 before_script:
-  - 'RAILS_ENV=test bundle exec rake db:create db:schema:load --trace'
+  - 'RAILS_ENV=test bundle exec rake db:create db:schema:load --trace '
 notifications:
   irc: "irc.freenode.org#travis"
