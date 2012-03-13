@@ -51,8 +51,9 @@ class IrcClient
     Thread.new(socket) do |s|
       loop do
         s.puts "PONG #{$1}" if s.gets =~ /^PING (.*)/
+        sleep 1
       end
-    end.run
+    end
   end
 end
 
